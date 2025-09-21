@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import backgroundImage from '../assets/images/background.png';
 
 interface Keys {
   w: boolean;
@@ -15,7 +14,7 @@ interface Keys {
 // "компонент Game рендерится" = компонент Game определяет/подготавливает то, что будет отображено на экране
 // !! рендеринг в вебе =/= рендеринг в играх
 // почитайте, что такое рендеринг
-const Game: React.FC = () => {
+const GameWorld: React.FC = () => {
 
   // position - переменная. setPosition - функция, чтобы обновлять состояние position - { x: 0, y: 0 }
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -48,12 +47,12 @@ const Game: React.FC = () => {
     // предзагрузка всех кадров анимации
     frames.forEach(frame => {
       const img = new Image();
-      img.src = `/src/assets/images/walk_animation/${frame}.png`;
+      img.src = `/assets/images/walk_animation/${frame}.png`;
       preloadedImages.current.set(frame, img.src);
     });
     // предзагрузка состояния покоя
     const staticImg = new Image();
-    staticImg.src = '/src/assets/images/walk_animation/static.png';
+    staticImg.src = '/assets/images/walk_animation/static.png';
     preloadedImages.current.set(0, staticImg.src);
   }, []); // есть [] - эффект выполнится только один раз - после первого рендера компонента
 
@@ -170,10 +169,10 @@ const Game: React.FC = () => {
   // текущее изображение для отображения
   const getCurrentImage = () => {
     if (!isWalking) {
-      return '/src/assets/images/walk_animation/static.png';
+      return '/assets/images/walk_animation/static.png';
     }
     const frameIndex = frames[currentFrame];
-    return `/src/assets/images/walk_animation/${frameIndex}.png`;
+    return `/assets/images/walk_animation/${frameIndex}.png`;
   };
 
   return (
@@ -186,7 +185,7 @@ const Game: React.FC = () => {
     }}>
       {/* Фон */}
       <img
-        src={backgroundImage}
+        src="/assets/images/background.png"
         alt="game background"
         style={{
           position: 'absolute',
@@ -250,4 +249,4 @@ const Game: React.FC = () => {
   );
 };
 
-export default Game;
+export default GameWorld;
