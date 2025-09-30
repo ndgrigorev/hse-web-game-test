@@ -7,7 +7,7 @@ interface Keys {
   d: boolean;
 }
 
-const BASE_URL = '';
+const BASE_URL = '.';
 
 const useGameScale = (gameWidth: number, gameHeight: number) => {
   const [scale, setScale] = useState(1);
