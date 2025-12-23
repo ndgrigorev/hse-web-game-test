@@ -1,0 +1,15 @@
+.interactive-object {
+  position: absolute;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.interactive-object-sprite {
+  display: block;
+}
+
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0px); }
+  50% { transform: translateX(-50%) translateY(-5px); }
+}

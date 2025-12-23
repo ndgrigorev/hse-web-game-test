@@ -1,12 +1,12 @@
 {
   "name": "my-react-app",
-  "homepage": "https://ndgrigorev.github.io/hse-web-game-test",
+  "homepage": "https://ivmart2005.github.io/hse-web-game",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
